@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Creamos una función para poder relacionar de 1 a 1 las tablas users y secretaria
+    public function secretarias(){
+        return $this->hasMany(Secretaria::class);
+    }
 }
