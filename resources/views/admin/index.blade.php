@@ -33,5 +33,19 @@
                 <a href="{{url('admin/secretarias')}}" class="small-box-footer">Más información<i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
+
+            <div class="col-lg-3 col-6">
+
+                <div class="small-box bg-success">
+                <div class="inner">
+                <h3>{{$total_pacientes}}</h3>
+                <p>Pacientes</p>
+                </div>
+                <div class="icon">
+                    <i class="ion fas bi bi-person-wheelchair"></i>
+                </div>
+                <a href="{{url('admin/pacientes')}}" class="small-box-footer">Más información<i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
     </div>
 @endsection

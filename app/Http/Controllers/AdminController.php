@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Secretaria;
+use App\Models\Paciente;
 
 use Illuminate\Http\Request;
 
@@ -13,6 +14,7 @@ class AdminController extends Controller
         //para contar la cántidad de usuarios que hay en la base de datos
         $total_usuarios= User::count();
         $total_secretarias = Secretaria::count();
-        return view('admin.index',compact('total_usuarios', 'total_secretarias'));
+        $total_pacientes = Paciente::count();
+        return view('admin.index',compact('total_usuarios', 'total_secretarias', 'total_pacientes'));
     }
 }
