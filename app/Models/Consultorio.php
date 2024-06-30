@@ -17,8 +17,7 @@ class Consultorio extends Model
 
     }
 
-        public function comments(){
-        
+        public function horarios(){
             return $this->hasMany(Horario::class);
         }
     }

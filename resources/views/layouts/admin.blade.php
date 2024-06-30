@@ -182,6 +182,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
           </li>
 
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas bi bi-heart-pulse"></i>
+              <p>
+                Doctores
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('admin/doctores/create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon" style="color:red"></i>
+                  <p>Creación de doctores</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin/doctores')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon " style="color:red"></i>
+                  <p>Listado de doctores</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
 
           <li class="nav-item">
             <a href="#" class="nav-link" style="background-color:#c11a09">
