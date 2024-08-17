@@ -8,9 +8,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Support\Facades\Validator;
+
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasRoles, HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -50,5 +53,10 @@ class User extends Authenticatable
     public function doctor(){
         //Relación de uno a uno
         return $this->hasOne(Doctor::class);
+    }
+
+    //Un evento puede tener muchos usuarios
+    public function eventos(){
+        return $this->hasMany(Evento::class);
     }
 }

@@ -6,6 +6,7 @@ use App\Models\Secretaria;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class SecretariaController extends Controller
 {
@@ -56,6 +57,9 @@ class SecretariaController extends Controller
         $secretaria->fecha_nacimiento = $request->fecha_nacimiento;
 
         $secretaria->save();
+
+        //Al usuario registrado el asignamos el rol de "secretaria"
+        $usuario->assignRole('secretaria');
 
         //Para redireccionar al agregar a la base de datos
         return redirect()->route('admin.secretarias.index')

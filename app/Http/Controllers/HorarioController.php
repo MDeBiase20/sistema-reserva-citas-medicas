@@ -62,7 +62,7 @@ class HorarioController extends Controller
                 })
 
                 ->orWhere(function ($query) use ($request){
-                    $query->where('hora_inicio', '>', $request->hora_inicio)
+                    $query->where('hora_fin', '>', $request->hora_inicio)
                         ->where('hora_fin', '<=', $request->hora_fin);
                 })
 

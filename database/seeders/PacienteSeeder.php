@@ -13,6 +13,9 @@ class PacienteSeeder extends Seeder
      */
     public function run(): void
     {
-        Paciente::factory()->count(200)->create();
+        //A estos 200 pacientes le defino un rol que va a ser el rol pacientes
+        Paciente::factory()->count(200)->create()->each(function ($user){
+            $user->assignRole('paciente');
+        });
     }
 }

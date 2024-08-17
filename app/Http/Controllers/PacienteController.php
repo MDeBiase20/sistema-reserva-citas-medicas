@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Paciente;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class PacienteController extends Controller
 {

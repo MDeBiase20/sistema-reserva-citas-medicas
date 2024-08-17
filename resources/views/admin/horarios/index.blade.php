@@ -135,6 +135,7 @@
                         
                         <div class="col-md-4" style="float: right">
                             <select name="consultorio_id" id="consultorio_select" class="form-control" id="">
+                                <option value="">Seleccione un consultorio...</option>
                                 @foreach($consultorios as $consultorio)
                                     <option value="{{ $consultorio->id }}">{{ $consultorio->nombre." - Ubicación: ".$consultorio->ubicacion}}</option>
                                 @endforeach

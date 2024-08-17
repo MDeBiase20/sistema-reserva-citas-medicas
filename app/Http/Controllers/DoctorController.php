@@ -6,6 +6,7 @@ use App\Models\Doctor;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class DoctorController extends Controller
 {
@@ -60,6 +61,9 @@ class DoctorController extends Controller
         $doctor->especialidad = $request->especialidad;
 
         $doctor->save();
+
+        //Asignamos el rol "doctor" a los doctores registrados
+        $usuario->assignRole('doctor');
 
         return redirect()->route('admin.doctores.index')
         ->with('mensaje', 'Se registró el doctor de manera correcta')

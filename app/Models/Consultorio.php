@@ -20,5 +20,10 @@ class Consultorio extends Model
         public function horarios(){
             return $this->hasMany(Horario::class);
         }
+
+        //Un evento puede tener varios consultorios
+        public function evento(){
+            return $this->hasMany(Evento::class);
+        }
     }
 

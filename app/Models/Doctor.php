@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Validator;
 
 class Doctor extends Model
 {
@@ -23,5 +24,10 @@ class Doctor extends Model
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    //Un evento tiene varios doctores
+    public function evento(){
+        return $this->hasMany(Evento::class);
     }
 }
