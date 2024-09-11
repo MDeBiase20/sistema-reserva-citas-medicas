@@ -36,8 +36,20 @@ class RoleSeeder extends Seeder
         Permission::create(['name'=>'admin.usuarios.show'])->syncRoles([$admin]);
         Permission::create(['name'=>'admin.usuarios.edit'])->syncRoles([$admin]);
         Permission::create(['name'=>'admin.usuarios.update'])->syncRoles([$admin]);
-        Permission::create(['name'=>'confirmDelete'])->syncRoles([$admin]);
+        Permission::create(['name'=>'admin.usuarios.confirmDelete'])->syncRoles([$admin]);
         Permission::create(['name'=>'admin.usuarios.destroy'])->syncRoles([$admin]);
+
+
+        //Rutas para el admin configuraciones
+        Permission::create(['name'=>'admin.configuraciones.index'])->syncRoles([$admin]);
+        Permission::create(['name'=>'admin.configuraciones.create'])->syncRoles([$admin]);
+        Permission::create(['name'=>'admin.configuraciones.store'])->syncRoles([$admin]);
+        Permission::create(['name'=>'admin.configuraciones.show'])->syncRoles([$admin]);
+        Permission::create(['name'=>'admin.configuraciones.edit'])->syncRoles([$admin]);
+        Permission::create(['name'=>'admin.configuraciones.update'])->syncRoles([$admin]);
+        Permission::create(['name'=>'admin.configuraciones.confirmDelete'])->syncRoles([$admin]);
+        Permission::create(['name'=>'admin.configuraciones.destroy'])->syncRoles([$admin]);
+        
 
         //Rutas para las secretarias
         Permission::create(['name'=>'admin.secretarias.index'])->syncRoles([$admin]);

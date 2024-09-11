@@ -90,7 +90,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
               with font-awesome or any other icon font library -->
-          @can('admin.usuarios.index')
+          
+              @can('admin.usuarios.index')
+              <li class="nav-item">
+                <a href="{{ url('/admin/configuraciones') }}" class="nav-link active">
+                  <i class="nav-icon fas bi bi-gear"></i>
+                  <p>
+                    Configuración
+                  </p>
+                </a>
+            @endcan
+
+              @can('admin.usuarios.index')
             <li class="nav-item">
               <a href="#" class="nav-link active">
                 <i class="nav-icon fas bi bi-file-person"></i>
