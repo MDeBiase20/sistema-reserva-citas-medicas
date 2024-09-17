@@ -90,6 +90,8 @@ class RoleSeeder extends Seeder
         Permission::create(['name'=>'admin.doctores.update'])->syncRoles([$admin, $secretaria]);
         Permission::create(['name'=>'admin.doctores.confirmDelete'])->syncRoles([$admin, $secretaria]);
         Permission::create(['name'=>'admin.doctores.destroy'])->syncRoles([$admin, $secretaria]);
+        Permission::create(['name'=>'admin.doctores.reportes'])->syncRoles([$admin, $secretaria]);
+        Permission::create(['name'=>'admin.doctores.pdf'])->syncRoles([$admin, $secretaria]);
 
         //Rutas para los horarios
         Permission::create(['name'=>'admin.horarios.index'])->syncRoles([$admin, $secretaria]);
@@ -111,5 +113,9 @@ class RoleSeeder extends Seeder
         Permission::create(['name'=>'admin.eventos.create'])->syncRoles([$admin, $usuario]);
         Permission::create(['name'=>'admin.eventos.destroy'])->syncRoles([$admin, $usuario]);
 
+        //Rutas para las reservas
+        Permission::create(['name'=>'admin.reservas.reportes'])->syncRoles([$admin]);
+        Permission::create(['name'=>'admin.reservas.pdf'])->syncRoles([$admin]);
+        Permission::create(['name'=>'admin.reservas.pdf_fechas'])->syncRoles([$admin]);
     }
 }

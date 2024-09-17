@@ -87,6 +87,8 @@ Route::delete('/admin/consultorios/{id}', [App\Http\Controllers\ConsultorioContr
 Route::get('/admin/doctores', [App\Http\Controllers\DoctorController::class, 'index'])->name('admin.doctores.index')->middleware('auth','can:admin.doctores.index');
 Route::get('/admin/doctores/create', [App\Http\Controllers\DoctorController::class, 'create'])->name('admin.doctores.create')->middleware('auth','can:dmin.doctores.create');
 Route::post('/admin/doctores/create', [App\Http\Controllers\DoctorController::class, 'store'])->name('admin.doctores.store')->middleware('auth','can:admin.doctores.store');
+Route::get('/admin/doctores/reportes', [App\Http\Controllers\DoctorController::class, 'reportes'])->name('admin.doctores.reportes')->middleware('auth','can:admin.doctores.reportes');
+Route::get('/admin/doctores/pdf', [App\Http\Controllers\DoctorController::class, 'pdf'])->name('admin.doctores.pdf')->middleware('auth','can:admin.doctores.pdf');
 Route::get('/admin/doctores/{id}', [App\Http\Controllers\DoctorController::class, 'show'])->name('admin.doctores.show')->middleware('auth','can:admin.doctores.show');
 Route::get('/admin/doctores/{id}/edit', [App\Http\Controllers\DoctorController::class, 'edit'])->name('admin.doctores.edit')->middleware('auth','can:admin.doctores.edit');
 Route::put('/admin/doctores/{id}', [App\Http\Controllers\DoctorController::class, 'update'])->name('admin.doctores.update')->middleware('auth','can:admin.doctores.update');
@@ -113,3 +115,8 @@ Route::get('/cargar_reserva_doctores/{id}', [App\Http\Controllers\WebController:
 Route::get('/admin/ver_reservas/{id}', [App\Http\Controllers\AdminController::class, 'ver_reservas'])->name('ver_reservas')->middleware('auth','can:ver_reservas');
 Route::post('/admin/eventos/create', [App\Http\Controllers\EventoController::class, 'store'])->name('admin.eventos.create')->middleware('auth','can:admin.eventos.create');
 Route::delete('/admin/eventos/destroy/{id}', [App\Http\Controllers\EventoController::class, 'destroy'])->name('admin.eventos.destroy')->middleware('auth','can:admin.eventos.destroy');
+
+//Rutas para las reservas
+Route::get('/admin/reservas/reportes', [App\Http\Controllers\EventoController::class, 'reportes'])->name('admin.reservas.reportes')->middleware('auth','can:admin.reservas.reportes');
+Route::get('/admin/reservas/pdf', [App\Http\Controllers\EventoController::class, 'pdf'])->name('admin.reservas.pdf')->middleware('auth','can:admin.reservas.pdf');
+Route::get('/admin/reservas/pdf_fechas', [App\Http\Controllers\EventoController::class, 'pdf_fechas'])->name('admin.reservas.pdf_fechas')->middleware('auth','can:admin.reservas.pdf_fechas');

@@ -228,6 +228,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <p>Listado de doctores</p>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a href="{{url('admin/doctores/reportes')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon " style="color:red"></i>
+                    <p>Reporte de doctores</p>
+                  </a>
+                </li>
               </ul>
             </li>
           @endcan
@@ -252,6 +258,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <a href="{{url('admin/horarios')}}" class="nav-link">
                     <i class="far fa-circle nav-icon " style="color:red"></i>
                     <p>Listado de horarios</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          @endcan
+
+          @can('admin.usuarios.index')
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas bi bi-calendar2-check"></i>
+                <p>
+                  Reservas
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{url('admin/reservas/reportes')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon " style="color:red"></i>
+                    <p>Reporte de doctores</p>
                   </a>
                 </li>
               </ul>

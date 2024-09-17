@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Evento;
 use App\Models\Doctor;
 use App\Models\Horario;
+use App\Models\User;
+use App\Models\Configuracione;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use Barryvdh\DomPDF\PDF;
 
 
 class EventoController extends Controller
@@ -201,5 +204,57 @@ class EventoController extends Controller
         return redirect()->route('admin.index')
         ->with('mensaje','Se eliminó de manera correcta la reserva')
         ->with('icono', 'success');
+    }
+
+    public function reportes(){
+        return view('admin.reservas.reportes');
+    }
+
+    public function pdf(){
+        #Consuta para traer el último registro de la configuración (datos de la clínica)
+        $configuracion = Configuracione::latest()->first(); #esta consulta traé al último registro y a la vez el primero del último
+
+        $eventos = Evento::all();
+
+        $pdf = \PDF::loadView('admin.reservas.pdf', compact('configuracion', 'eventos'));
+
+            //Código para mostrar un pie de página con la fecha, la cántidad de páginas que tiene el reporte y el usuario que lo generó
+            $pdf->output();
+            $dompdf = $pdf->getDomPDF();
+            $canvas = $dompdf->getCanvas();
+
+            // Agregar el texto al pie de página
+            $canvas->page_text(20, 800, "Impreso por: ".Auth::user()->email, null, 10, array(0,0,0));
+            $canvas->page_text(270, 800, "Página {PAGE_NUM} de {PAGE_COUNT}", null, 10, array(0,0,0));
+            $canvas->page_text(450, 800, "Fecha: ". \Carbon\Carbon::now()->format('d/m/Y'). " ".\Carbon\Carbon::now()->format('h:i:s'), null, 10, array(0,0,0));
+
+            // Generar y mostrar el PDF
+            return $pdf->stream();
+
+    }
+
+    public function pdf_fechas(Request $request){
+        $configuracion = Configuracione::latest()->first();
+
+        //Almaceno en unas variables los names de las fechas de inicio y de fin 
+        $fecha_inicio = $request->input('fecha_inicio');
+        $fecha_fin = $request->input('fecha_fin');
+
+        $eventos = Evento::whereBetween('start', [$fecha_inicio, $fecha_fin])->get();
+
+        $pdf = \PDF::loadView('admin.reservas.pdf_fechas', compact('configuracion', 'eventos', 'fecha_inicio', 'fecha_fin'));
+
+            //Código para mostrar un pie de página con la fecha, la cántidad de páginas que tiene el reporte y el usuario que lo generó
+            $pdf->output();
+            $dompdf = $pdf->getDomPDF();
+            $canvas = $dompdf->getCanvas();
+
+            // Agregar el texto al pie de página
+            $canvas->page_text(20, 800, "Impreso por: ".Auth::user()->email, null, 10, array(0,0,0));
+            $canvas->page_text(270, 800, "Página {PAGE_NUM} de {PAGE_COUNT}", null, 10, array(0,0,0));
+            $canvas->page_text(450, 800, "Fecha: ". \Carbon\Carbon::now()->format('d/m/Y'). " ".\Carbon\Carbon::now()->format('h:i:s'), null, 10, array(0,0,0));
+
+            // Generar y mostrar el PDF
+            return $pdf->stream();
     }
 }
