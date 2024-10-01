@@ -9,6 +9,7 @@ use App\Models\Secretaria;
 use App\Models\Doctor;
 use App\Models\Consultorio;
 use App\Models\Horario;
+use App\Models\Configuracione;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -154,5 +155,16 @@ class DatabaseSeeder extends Seeder
             'doctor_id'=>'1',
             'consultorio_id'=>'1',
         ]);
+
+        //Creación de la configuración
+    Configuracione::create([
+        'nombre'=>'Hospital Italiano',
+        'direccion'=>'Av. Gral. Paz 2758',
+        'telefono'=>'4697785',
+        'correo'=>'hospitalitaliano@info.com.ar',
+        'logo'=>'logos/Zxbrr8lugHzgGpGzvfBoZis51IrQSLvyuRJxb00g.jpg'
+    ]);
+
     }
+
 }

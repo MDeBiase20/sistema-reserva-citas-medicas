@@ -117,5 +117,18 @@ class RoleSeeder extends Seeder
         Permission::create(['name'=>'admin.reservas.reportes'])->syncRoles([$admin]);
         Permission::create(['name'=>'admin.reservas.pdf'])->syncRoles([$admin]);
         Permission::create(['name'=>'admin.reservas.pdf_fechas'])->syncRoles([$admin]);
+
+        //Rutas para los historiales clínicos
+        Permission::create(['name'=>'admin.historial.index'])->syncRoles([$admin, $doctor]);
+        Permission::create(['name'=>'admin.historial.create'])->syncRoles([$admin, $doctor]);
+        Permission::create(['name'=>'admin.historial.store'])->syncRoles([$admin, $doctor]);
+        Permission::create(['name'=>'admin.historial.pdf'])->syncRoles([$admin, $doctor]);
+        Permission::create(['name'=>'admin.historial.show'])->syncRoles([$admin, $doctor]);
+        Permission::create(['name'=>'admin.historial.edit'])->syncRoles([$admin, $doctor]);
+        Permission::create(['name'=>'admin.historial.update'])->syncRoles([$admin, $doctor]);
+        Permission::create(['name'=>'admin.historial.confirmDelete'])->syncRoles([$admin, $doctor]);
+        Permission::create(['name'=>'admin.historial.destroy'])->syncRoles([$admin, $doctor]);
+        Permission::create(['name'=>'admin.historial.buscar_paciente'])->syncRoles([$admin, $doctor]);
+        Permission::create(['name'=>'admin.historial.imprimir_historial'])->syncRoles([$admin, $doctor]);
     }
 }

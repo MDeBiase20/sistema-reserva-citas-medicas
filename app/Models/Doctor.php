@@ -30,4 +30,9 @@ class Doctor extends Model
     public function evento(){
         return $this->hasMany(Evento::class);
     }
+
+    public function historial(){
+        //Un doctor va a tener muchos historiales clínicos
+        return $this->hasMany(Historial::class);
+    }
 }

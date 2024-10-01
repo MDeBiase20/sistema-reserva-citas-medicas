@@ -20,7 +20,7 @@
             <td width="330px"></td>
 
             <td>
-                <img src="{{url('storage/'. " ".$configuracion->logo)}}" alt="logo" width="300px">
+                <img src="{{public_path('storage/'. " ".$configuracion->logo)}}" alt="logo" width="300px">
             </td>
 
         </tr>

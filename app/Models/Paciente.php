@@ -13,4 +13,9 @@ class Paciente extends Model
     use HasFactory;
     use HasRoles;
     protected $guard_name = 'web';
+
+    public function historial(){
+        //La relación va a ser de uno a mucho
+        return $this->hasMany(Historial::class);
+    }
 }

@@ -34,6 +34,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!--SweetAlert-->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!--CkEditor5-->
+  <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.1.0/ckeditor5.css" />
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -280,6 +284,34 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <p>Reporte de doctores</p>
                   </a>
                 </li>
+              </ul>
+            </li>
+          @endcan
+
+          @can('admin.historial.index')
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas bi bi-file-earmark-medical"></i>
+                <p>
+                  Historial clínico
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{url('admin/historial')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon " style="color:red"></i>
+                    <p>Listado de historiales</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{{url('admin/historial/buscar_paciente')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon " style="color:red"></i>
+                    <p>Buscar paciente</p>
+                  </a>
+                </li>
+
               </ul>
             </li>
           @endcan
