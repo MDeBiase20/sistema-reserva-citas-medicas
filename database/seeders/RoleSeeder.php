@@ -130,5 +130,17 @@ class RoleSeeder extends Seeder
         Permission::create(['name'=>'admin.historial.destroy'])->syncRoles([$admin, $doctor]);
         Permission::create(['name'=>'admin.historial.buscar_paciente'])->syncRoles([$admin, $doctor]);
         Permission::create(['name'=>'admin.historial.imprimir_historial'])->syncRoles([$admin, $doctor]);
+
+        //Rutas para los pagos
+        Permission::create(['name'=>'admin.pagos.index'])->syncRoles([$admin, $secretaria]);
+        Permission::create(['name'=>'admin.pagos.create'])->syncRoles([$admin, $secretaria]);
+        Permission::create(['name'=>'admin.pagos.store'])->syncRoles([$admin, $secretaria]);
+        Permission::create(['name'=>'admin.pagos.pdf'])->syncRoles([$admin, $secretaria]);
+        Permission::create(['name'=>'admin.pagos.show'])->syncRoles([$admin, $secretaria]);
+        Permission::create(['name'=>'admin.pagos.edit'])->syncRoles([$admin, $secretaria]);
+        Permission::create(['name'=>'admin.pagos.update'])->syncRoles([$admin, $secretaria]);
+        Permission::create(['name'=>'admin.pagos.confirmDelete'])->syncRoles([$admin, $secretaria]);
+        Permission::create(['name'=>'admin.pagos.destroy'])->syncRoles([$admin, $secretaria]);
+
     }
 }

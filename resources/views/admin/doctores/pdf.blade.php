@@ -7,6 +7,17 @@
     <title>Document</title>
 </head>
 
+<style>
+    #doctor{
+        margin-left: 100px;
+    }
+
+    thead{
+        background-color: rgb(248, 238, 226);
+        color: rgb(164, 208, 247);
+    }
+  </style>
+
 <body>
     <table border="0" style="font-size: 9pt">
         <tr>
@@ -17,19 +28,19 @@
                 {{ $configuracion->correo }} <br>
             </td>
 
-            <td width="330px"></td>
+            <td width="370px"></td>
 
             <td>
-                <img src="{{ url('storage/'.$configuracion->logo) }}" alt="logo" width="300px">
+                <img src="{{ public_path('storage/'.$configuracion->logo) }}" alt="logo" width="200px">
             </td>
 
         </tr>
     </table>
     <h2 style="text-align: center"><u>Listado de doctores</u></h2>
 
-    <table class="table table-bordered table-striped">
+    <table id="doctor">
         <thead>
-            <tr style="background-color: #e7e7e7">
+            <tr>
                 <th>Nro</th>
                 <th>Nombres y apellido</th>
                 <th>Teléfono</th>

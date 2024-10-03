@@ -47,7 +47,7 @@ class User extends Authenticatable
 
     //Creamos una función para poder relacionar de 1 a 1 las tablas users y secretaria
     public function secretarias(){
-        return $this->hasMany(Secretaria::class);
+        return $this->hasOne(Secretaria::class);
     }
 
     public function doctor(){

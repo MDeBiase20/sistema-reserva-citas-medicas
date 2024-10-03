@@ -35,4 +35,9 @@ class Doctor extends Model
         //Un doctor va a tener muchos historiales clínicos
         return $this->hasMany(Historial::class);
     }
+
+    public function pagos()
+    {
+        return $this->hasMany(Pago::class);
+    }
 }

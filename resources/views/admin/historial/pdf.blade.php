@@ -4,9 +4,9 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <title>Historiales clínicos</title>
   </head>
+
 <body>
     <table border="0" style="font-size: 9pt">
         <tr>

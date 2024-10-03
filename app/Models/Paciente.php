@@ -18,4 +18,9 @@ class Paciente extends Model
         //La relación va a ser de uno a mucho
         return $this->hasMany(Historial::class);
     }
+
+    public function pagos()
+    {
+        return $this->hasMany(Pago::class);
+    }
 }
